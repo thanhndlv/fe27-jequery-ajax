@@ -118,8 +118,11 @@ $(document).ready(function () {
     taoBang();
     setLocalStorage();
   });
-  $("body").delegate("#search").on("keyup", function () {
-    taoBang(mangNhanVienTimKiem);
+  $("body").delegate("#search","on", function () {
+    var timKiem = $(this).data("taiKhoan");
+    console.log(timKiem);
+    danhSachNguoiDung.timKiem(timKiem);
+    taoBang(danhSachNguoiDung.mangNguoiDung);
   });
 
   function setLocalStorage() {
