@@ -17,11 +17,11 @@ $(document).ready(function () {
     $('.modal-title').html(ttl);
     $('.modal-footer').html(footer);
   }
-  $("#btnThemNguoiDung").click(function(){
+  $("#btnThemNguoiDung").click(function () {
     showPopUp("Thêm người dùng", "Thêm", "btnThem");
     $("#TaiKhoan").removeAttr("disabled");
   });
-  $("body").delegate(".btnSua", "click", function() {
+  $("body").delegate(".btnSua", "click", function () {
     showPopUp("Sửa người dùng", "Cập nhật", "btnCapNhat");
   });
 
@@ -107,7 +107,7 @@ $(document).ready(function () {
     $("#Email").val(nguoiDung.email);
     $("#SoDienThoai").val(nguoiDung.soDT);
   });
-  $("body").delegate("#btnCapNhat", "click", function() {
+  $("body").delegate("#btnCapNhat", "click", function () {
     var taiKhoan = $("#TaiKhoan").val();
     var hoTen = $("#HoTen").val();
     var matKhau = $("#MatKhau").val();
@@ -118,6 +118,10 @@ $(document).ready(function () {
     taoBang();
     setLocalStorage();
   });
+  $("body").delegate("#search").on("keyup", function () {
+    taoBang(mangNhanVienTimKiem);
+  });
+
   function setLocalStorage() {
     localStorage.setItem(
       "mangNguoiDung",

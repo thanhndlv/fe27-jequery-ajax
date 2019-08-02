@@ -1,6 +1,5 @@
 function DanhSachNguoiDung() {
   this.mangNguoiDung = [];
-
   this.themNguoiDung = function (nguoiDung) {
     this.mangNguoiDung.push(nguoiDung);
   };
@@ -27,3 +26,12 @@ DanhSachNguoiDung.prototype.xoaNhanVien = function (taiKhoan) {
   });
   this.mangNguoiDung.splice(viTri, 1);
 }
+DanhSachNguoiDung.prototype.timKiem = function(chuoiTk) {
+  var mangTimKiem = [];
+  this.mangNguoiDung.map(function(item) {
+    if (item.taiKhoan.toLowerCase().indexOf(chuoiTk.toLowerCase()) > -1) {
+      mangTimKiem.push(item);
+    }
+  });
+  return mangTimKiem;
+};
